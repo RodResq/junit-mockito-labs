@@ -27,5 +27,7 @@ public class AssetsTest {
         Usuario u2 = new Usuario("u1");
 
         Assert.assertEquals(u1, u2);
+
+        Assert.assertSame(u2, u2);
     }
 }
