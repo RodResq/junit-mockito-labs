@@ -67,6 +67,7 @@ public class LocacaoTest {
             //acao
             Locacao locacao = locacaoService.alugarFilme(usuario, filme);
             Mockito.when(locacaoService.alugarFilme(usuario, filme)).thenReturn(new Locacao());
+            Assert.fail();
         } catch (FilmeSemEstoqueException e) {
             assertThat(e.getMessage(), is(equalTo("Filme sem estoque!")));
         }
@@ -84,5 +85,18 @@ public class LocacaoTest {
 //      verificacao
         locacaoService.alugarFilme(usuario, filme);
 
+    }
+
+    @Test
+    public void checaSeUsarioEstaVazio() throws FilmeSemEstoqueException {
+        LocacaoService service = new LocacaoService();
+        Usuario usuario = new Usuario();
+        Filme filme =  new Filme("Filme 1", 1, 5.5);
+
+        try {
+            service.alugarFilme(usuario, filme);
+        } catch (LocacaoException e) {
+            assertThat(e.getMessage(), is(equalTo("Usuario nao pode ser nulo!")));
+        }
     }
 }
