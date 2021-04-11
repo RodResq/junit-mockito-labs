@@ -3,16 +3,11 @@ package br.ce.wcaquino.servicos;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
-import org.hamcrest.CoreMatchers;
-import org.junit.Assert;
 import org.junit.Rule;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ErrorCollector;
 
 import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LocacaoTest {
 
