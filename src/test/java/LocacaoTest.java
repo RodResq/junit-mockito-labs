@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class LocacaoTest {
 
+
     @Test
     void deveValidarValores() {
 
