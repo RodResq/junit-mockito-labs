@@ -4,14 +4,15 @@ public class Filme {
 
 	private String nome;
 	private Integer estoque;
-	private Double precoLocacao;  
-	
+	private Double valor;
+
+
 	public Filme() {}
 	
-	public Filme(String nome, Integer estoque, Double precoLocacao) {
+	public Filme(String nome, Integer estoque, Double valor) {
 		this.nome = nome;
 		this.estoque = estoque;
-		this.precoLocacao = precoLocacao;
+		this.valor = valor;
 	}
 	
 	public String getNome() {
@@ -26,10 +27,10 @@ public class Filme {
 	public void setEstoque(Integer estoque) {
 		this.estoque = estoque;
 	}
-	public Double getPrecoLocacao() {
-		return precoLocacao;
+	public Double getValor() {
+		return valor;
 	}
-	public void setPrecoLocacao(Double precoLocacao) {
-		this.precoLocacao = precoLocacao;
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 }
