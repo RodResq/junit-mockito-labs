@@ -7,13 +7,14 @@ import java.util.Date;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
+import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 
 public class LocacaoService {
 	
 	public Locacao alugarFilme(Usuario usuario, Filme filme) {
 
 		if (filme.getEstoque() == 0) {
-			throw new RuntimeException("Filme sem estoque!");
+			throw new FilmeSemEstoqueException("Filme sem estoque!");
 		}
 
 		Locacao locacao = new Locacao();
