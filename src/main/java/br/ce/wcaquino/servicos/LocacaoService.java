@@ -12,7 +12,7 @@ import br.ce.wcaquino.exceptions.LocacaoException;
 
 public class LocacaoService {
 	
-	public Locacao alugarFilme(Usuario usuario, Filme filme) throws Exception {
+	public Locacao alugarFilme(Usuario usuario, Filme filme) throws FilmeSemEstoqueException, LocacaoException {
 
 		if (filme.getEstoque() == 0) {
 			throw new FilmeSemEstoqueException("Filme sem estoque!");
