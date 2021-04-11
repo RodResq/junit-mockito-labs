@@ -4,6 +4,7 @@ import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
+import br.ce.wcaquino.exceptions.LocacaoException;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
@@ -23,7 +24,7 @@ public class LocacaoTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test()
-    public void deveValidarValores() throws RuntimeException {
+    public void deveValidarValores() throws Exception {
 
         LocacaoService locacaoService = new LocacaoService();
         Usuario usuario = new Usuario("Usuario 1");
@@ -46,7 +47,7 @@ public class LocacaoTest {
     }
 
     @Test(expected = FilmeSemEstoqueException.class)
-    public void checaFilmeSemEstoque1() throws FilmeSemEstoqueException {
+    public void checaFilmeSemEstoque1() throws Exception {
 
         LocacaoService locacaoService = new LocacaoService();
         Usuario usuario = new Usuario("Usuario 1");
@@ -56,7 +57,7 @@ public class LocacaoTest {
     }
 
     @Test()
-    public void checaFilmeSemEstoque2() {
+    public void checaFilmeSemEstoque2() throws Exception{
 
         LocacaoService locacaoService = new LocacaoService();
         Usuario usuario = new Usuario("Usuario 1");
@@ -66,19 +67,19 @@ public class LocacaoTest {
             //acao
             Locacao locacao = locacaoService.alugarFilme(usuario, filme);
             Mockito.when(locacaoService.alugarFilme(usuario, filme)).thenReturn(new Locacao());
-        } catch (RuntimeException e) {
+        } catch (FilmeSemEstoqueException e) {
             assertThat(e.getMessage(), is(equalTo("Filme sem estoque!")));
         }
     }
 
     @Test
-    public void checaFilmeSemEstoqueLancandoExcecao() throws RuntimeException {
+    public void checaFilmeSemEstoqueLancandoExcecao() throws Exception {
 //      cenario
         LocacaoService locacaoService = new LocacaoService();
         Usuario usuario = new Usuario("Usuario 1");
         Filme filme = new Filme("Filme 1", 0, 5.5);
 //      acao
-        expectedException.expect(RuntimeException.class);
+        expectedException.expect(FilmeSemEstoqueException.class);
         expectedException.expectMessage("Filme sem estoque!");
 //      verificacao
         locacaoService.alugarFilme(usuario, filme);
