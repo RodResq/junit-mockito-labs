@@ -3,9 +3,13 @@ package br.ce.wcaquino.servicos;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
-import br.ce.wcaquino.servicos.LocacaoService;
+import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LocacaoTest {
 
@@ -20,12 +24,15 @@ public class LocacaoTest {
         Locacao locacao = locacaoService.alugarFilme(usuario, filme);
 
         //verificacao
-        Assertions.assertEquals(locacao.getUsuario(), usuario);
-        Assertions.assertEquals(locacao.getFilme(), filme);
-        Assertions.assertEquals(locacao.getUsuario().getNome(), usuario.getNome());
-        Assertions.assertEquals(locacao.getFilme().getNome(), filme.getNome());
-        Assertions.assertEquals(locacao.getFilme().getEstoque(), filme.getEstoque());
-        Assertions.assertEquals(locacao.getFilme().getPrecoLocacao(), filme.getPrecoLocacao());
+
+        assertThat(locacao.getValor(), is(equalTo(5.5)));
+        assertThat(locacao.getValor(), is(not(6.0)));
+        assertEquals(locacao.getUsuario(), usuario);
+        assertEquals(locacao.getFilme(), filme);
+        assertEquals(locacao.getUsuario().getNome(), usuario.getNome());
+        assertEquals(locacao.getFilme().getNome(), filme.getNome());
+        assertEquals(locacao.getFilme().getEstoque(), filme.getEstoque());
+        assertEquals(locacao.getFilme().getPrecoLocacao(), filme.getPrecoLocacao());
 
     }
 }

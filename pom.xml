@@ -5,7 +5,6 @@
   <version>0.0.1-SNAPSHOT</version>
   
   <dependencies>
-      <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
       <dependency>
           <groupId>org.junit.jupiter</groupId>
           <artifactId>junit-jupiter-api</artifactId>
@@ -19,6 +18,12 @@
           <version>4.12</version>
       </dependency>
 
+      <dependency>
+          <groupId>org.hamcrest</groupId>
+          <artifactId>hamcrest-core</artifactId>
+          <version>2.2</version>
+          <scope>test</scope>
+      </dependency>
 
   </dependencies>
 </project>
