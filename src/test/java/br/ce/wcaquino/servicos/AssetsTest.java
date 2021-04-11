@@ -1,5 +1,6 @@
 package br.ce.wcaquino.servicos;
 
+import br.ce.wcaquino.entidades.Usuario;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
@@ -22,5 +23,9 @@ public class AssetsTest {
         Assert.assertEquals("bola", "bola");
         Assert.assertTrue("bola".equalsIgnoreCase("Bola"));
 
+        Usuario u1 = new Usuario("u1");
+        Usuario u2 = new Usuario("u1");
+
+        Assert.assertEquals(u1, u2);
     }
 }
