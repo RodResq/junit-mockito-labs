@@ -4,6 +4,7 @@ import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,12 +19,12 @@ public class LocacaoTest {
     @Rule
     public ErrorCollector errorCollector = new ErrorCollector();
 
-    @Test
-    void deveValidarValores() {
+    @Test()
+    void deveValidarValores() throws RuntimeException {
 
         LocacaoService locacaoService = new LocacaoService();
         Usuario usuario = new Usuario("Usuario 1");
-        Filme filme = new Filme("Filme 1", 1, 5.5);
+        Filme filme = new Filme("Filme 1", 0, 5.5);
 
         //acao
         Locacao locacao = locacaoService.alugarFilme(usuario, filme);
