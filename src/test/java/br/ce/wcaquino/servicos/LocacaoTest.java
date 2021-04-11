@@ -25,9 +25,24 @@ public class LocacaoTest {
 
     @Before
     public void setup() {
+        System.out.println("before");
         locacaoService = new LocacaoService();
     }
 
+    @After
+    public void after() {
+        System.out.println("after");
+    }
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.println("before class");
+    }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println("after class");
+    }
 
     @Test()
     public void deveValidarValores() throws Exception {
