@@ -21,6 +21,8 @@ public class AssetsTest {
         Assert.assertEquals(i, j.intValue());
 
         Assert.assertEquals("bola", "bola");
+        Assert.assertNotEquals("bola", "Bola");
+
         Assert.assertTrue("bola".equalsIgnoreCase("Bola"));
 
         Usuario u1 = new Usuario("u1");
@@ -29,5 +31,9 @@ public class AssetsTest {
         Assert.assertEquals(u1, u2);
 
         Assert.assertSame(u2, u2);
+
+        Usuario u3 = null;
+        Assert.assertNotEquals(u1,u3);
+        Assert.assertNull(u3);
     }
 }
