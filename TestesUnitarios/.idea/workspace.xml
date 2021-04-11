@@ -4,13 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="342caa64-348e-4b90-a32f-a46c989471f9" name="Default Changelist" comment="" />
+    <list default="true" id="342caa64-348e-4b90-a32f-a46c989471f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/libraries/org_junit_jupiter_junit_jupiter_5_4_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/test/java/LocacaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/junit-mokito-labs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/junit-mokito-labs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/main/java/br/ce/wcaquino/servicos/LocacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/main/java/br/ce/wcaquino/servicos/LocacaoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/META-INF/maven/br.ce.wcaquino/TestesUnitarios/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/META-INF/maven/br.ce.wcaquino/TestesUnitarios/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/entidades/Filme.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/entidades/Filme.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/entidades/Locacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/entidades/Locacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/entidades/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/entidades/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/servicos/LocacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/servicos/LocacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/utils/DataUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../target/classes/br/ce/wcaquino/utils/DataUtils.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1r1eLJpY9EfhJS4BFOw3Pj07DgF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -26,19 +45,6 @@
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -48,10 +54,22 @@
       <option name="presentableId" value="Default" />
       <updated>1618147965833</updated>
       <workItem from="1618147966915" duration="73000" />
+      <workItem from="1618150285764" duration="13000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
