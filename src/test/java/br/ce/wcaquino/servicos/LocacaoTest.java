@@ -15,6 +15,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class LocacaoTest {
 
+    private int contador = 0;
+
     @Rule
     public ErrorCollector errorCollector = new ErrorCollector();
 
@@ -26,7 +28,9 @@ public class LocacaoTest {
     @Before
     public void setup() {
         System.out.println("before");
+        contador++;
         locacaoService = new LocacaoService();
+        System.out.println(contador);
     }
 
     @After
