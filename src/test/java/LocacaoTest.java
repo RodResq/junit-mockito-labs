@@ -2,7 +2,6 @@ import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.servicos.LocacaoService;
-import com.sun.prism.shader.AlphaOne_Color_AlphaTest_Loader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
