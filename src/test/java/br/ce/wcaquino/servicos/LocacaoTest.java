@@ -19,7 +19,7 @@ public class LocacaoTest {
 
         LocacaoService locacaoService = new LocacaoService();
         Usuario usuario = new Usuario("Usuario 1");
-        Filme filme = new Filme("Filme 1", 0, 5.5);
+        Filme filme = new Filme("Filme 1", 2, 5.5);
 
         //acao
         Locacao locacao = locacaoService.alugarFilme(usuario, filme);
