@@ -117,10 +117,11 @@ public class LocacaoTest {
         LocacaoService service = new LocacaoService();
         Usuario usuario = new Usuario("Usuario 1");
 
+        expectedException.expect(LocacaoException.class);
+        expectedException.expectMessage("Filme vazio");
+
         service.alugarFilme(usuario, null);
 
-        expectedException.expect(LocacaoException.class);
-//        expectedException.expectMessage("Filme vazio");
 
     }
 }
