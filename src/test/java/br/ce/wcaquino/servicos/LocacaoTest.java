@@ -52,16 +52,16 @@ public class LocacaoTest {
     }
 
     @Test(expected = FilmeSemEstoqueException.class)
-    public void checaFilmeSemEstoque1() throws Exception {
+    public void checaFilmeSemEstoque1() throws FilmeSemEstoqueException, LocacaoException {
 
         Usuario usuario = new Usuario("Usuario 1");
         Filme filme = new Filme("Filme 1", 0, 5.5);
 
-        Locacao locacao = locacaoService.alugarFilme(usuario, filme);
+        locacaoService.alugarFilme(usuario, filme);
     }
 
     @Test()
-    public void checaFilmeSemEstoque2() throws Exception{
+    public void checaFilmeSemEstoque2() throws LocacaoException{
 
         Usuario usuario = new Usuario("Usuario 1");
         Filme filme = new Filme("Filme 1", 0, 5.5);
@@ -77,7 +77,7 @@ public class LocacaoTest {
     }
 
     @Test
-    public void checaFilmeSemEstoqueLancandoExcecao() throws Exception {
+    public void checaFilmeSemEstoqueLancandoExcecao() throws FilmeSemEstoqueException, LocacaoException {
 //      cenario
         Usuario usuario = new Usuario("Usuario 1");
         Filme filme = new Filme("Filme 1", 0, 5.5);
