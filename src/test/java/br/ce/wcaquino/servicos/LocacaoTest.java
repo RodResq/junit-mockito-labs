@@ -90,13 +90,37 @@ public class LocacaoTest {
     @Test
     public void checaSeUsarioEstaVazio() throws FilmeSemEstoqueException {
         LocacaoService service = new LocacaoService();
-        Usuario usuario = new Usuario();
         Filme filme =  new Filme("Filme 1", 1, 5.5);
 
         try {
-            service.alugarFilme(usuario, filme);
+            service.alugarFilme(null, filme);
+            Assert.fail();
         } catch (LocacaoException e) {
             assertThat(e.getMessage(), is(equalTo("Usuario nao pode ser nulo!")));
         }
+    }
+
+    @Test
+    public void chacaSeFimeEstaVazio() throws FilmeSemEstoqueException {
+        LocacaoService service = new LocacaoService();
+        Usuario usuario = new Usuario("Usuario 1");
+
+        try {
+            service.alugarFilme(usuario, null);
+        }  catch (LocacaoException e) {
+            assertThat(e.getMessage(), is(equalTo("Filme nao pode ser nulo")));
+        }
+    }
+
+    @Test
+    public void chacaSeFimeEstaVazio2() throws FilmeSemEstoqueException, LocacaoException {
+        LocacaoService service = new LocacaoService();
+        Usuario usuario = new Usuario("Usuario 1");
+
+        service.alugarFilme(usuario, null);
+
+        expectedException.expect(LocacaoException.class);
+//        expectedException.expectMessage("Filme vazio");
+
     }
 }

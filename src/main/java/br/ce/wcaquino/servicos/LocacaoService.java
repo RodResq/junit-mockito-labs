@@ -14,16 +14,16 @@ public class LocacaoService {
 	
 	public Locacao alugarFilme(Usuario usuario, Filme filme) throws FilmeSemEstoqueException, LocacaoException {
 
-		if (filme.getEstoque() == 0) {
-			throw new FilmeSemEstoqueException("Filme sem estoque!");
-		}
 
-		if (usuario.equals(null)) {
+		if (filme == null) {
+			throw new LocacaoException("Filme vazio");
+		}
+		if (usuario == null) {
 			throw new LocacaoException("Usuario nao pode ser nulo!");
 		}
 
-		if (filme.equals(null)) {
-			throw new LocacaoException("Filme nao pode ser nulo");
+		if (filme.getEstoque() == 0) {
+			throw new FilmeSemEstoqueException("Filme sem estoque!");
 		}
 
 		Locacao locacao = new Locacao();
