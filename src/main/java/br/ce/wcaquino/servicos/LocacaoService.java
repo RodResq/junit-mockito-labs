@@ -30,11 +30,11 @@ public class LocacaoService {
 
 		}
 
-
 		Locacao locacao = new Locacao();
 		locacao.setFilmes(filmes);
 		locacao.setUsuario(usuario);
 		locacao.setDataLocacao(new Date());
+		locacao.setLocacaoPreco(filmes);
 		//Entrega no dia seguinte
 		Date dataEntrega = new Date();
 		dataEntrega = adicionarDias(dataEntrega, 1);

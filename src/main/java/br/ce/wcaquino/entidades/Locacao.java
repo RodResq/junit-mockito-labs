@@ -11,7 +11,7 @@ public class Locacao {
 	private Date dataRetorno;
 	private Double locacaoPreco;
 
-	
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -34,14 +34,38 @@ public class Locacao {
 		this.filmes = filmes;
 	}
 
-	public Double getLocacaoPreco() {
+	public void setLocacaoPreco(List<Filme> filmes) {
+
 		Double valorTotal = 0.0;
 
-		for (Filme filme : filmes) {
-			valorTotal += filme.getValor();
+		for (int i = 0; i < filmes.size(); i++) {
+
+			Filme filme = filmes.get(i);
+			Double valorFilme = filme.getValor();
+
+			if ( i == 2) {
+				valorFilme = valorFilme * 0.75;
+			}
+
+			valorTotal += valorFilme;
 		}
 
-		return valorTotal;
+		this.locacaoPreco = valorTotal;
+
+	}
+
+	private Double valorParaFilme3(Double valor) {
+		Double valorDesconto = 0.0;
+		Double taxaDesconto = 0.75;
+
+		valorDesconto = valor * taxaDesconto;
+
+		return (valor - valorDesconto);
+
+	}
+
+	public Double getLocacaoPreco() {
+		return locacaoPreco;
 	}
 
 
