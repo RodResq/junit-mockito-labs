@@ -23,10 +23,10 @@ public class LocacaoService {
 			throw new LocacaoException("Usuario nao pode ser nulo!");
 		}
 
-			for (Filme filme : filmes) {
-				if (filme.getEstoque() == 0) {
-					throw new FilmeSemEstoqueException("Filme sem estoque!");
-				}
+		for (Filme filme : filmes) {
+			if (filme.getEstoque() == 0) {
+				throw new FilmeSemEstoqueException("Filme sem estoque!");
+			}
 
 		}
 

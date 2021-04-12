@@ -11,6 +11,7 @@ import org.junit.rules.ExpectedException;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.*;
@@ -174,5 +175,18 @@ public class LocacaoTest {
         locacaoService.alugarFilme(usuario, null);
 
 
+    }
+
+    @Test
+    public void devePagar75PctNoFilme3() throws FilmeSemEstoqueException, LocacaoException {
+        // cenario
+        Usuario usuario = new Usuario("Usuario 1");
+        List<Filme> filmes = Arrays.asList(new Filme("filme 1", 1, 5.0),
+                new Filme("filme 2", 2, 2.0), new Filme("filme 3", 3, 3.0));
+        
+        //acao
+        Locacao resultado = locacaoService.alugarFilme(usuario, filmes);
+
+        //verficacao
     }
 }
