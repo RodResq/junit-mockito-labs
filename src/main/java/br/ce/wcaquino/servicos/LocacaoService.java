@@ -1,17 +1,21 @@
 package br.ce.wcaquino.servicos;
 
-import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
-
-import java.util.Date;
-import java.util.List;
-
+import br.ce.wcaquino.daos.LocacaoDao;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocacaoException;
 
+import java.util.Date;
+import java.util.List;
+
+import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
+
 public class LocacaoService {
+
+	private LocacaoDao locacaoDao;
+	private SpcService cpcService;
 	
 	public Locacao alugarFilme(Usuario usuario, List<Filme> filmes) throws FilmeSemEstoqueException, LocacaoException {
 
@@ -30,6 +34,10 @@ public class LocacaoService {
 
 		}
 
+		if (cpcService.possuiNagativacao(usuario)) {
+			throw new LocacaoException("Usuario Negativado");
+		}
+
 		Locacao locacao = new Locacao();
 		locacao.setFilmes(filmes);
 		locacao.setUsuario(usuario);
@@ -42,8 +50,17 @@ public class LocacaoService {
 		
 		//Salvando a locacao...	
 		//TODO adicionar método para salvar
+		locacaoDao.salvar(locacao);
 		
 		return locacao;
+	}
+
+	public void setLocacaoDao(LocacaoDao dao) {
+		this.locacaoDao = dao;
+	}
+
+	public void setSpcService(SpcService spc) {
+		cpcService = spc;
 	}
 
 }

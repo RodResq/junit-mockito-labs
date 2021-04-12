@@ -1,5 +1,6 @@
 package br.ce.wcaquino.servicos;
 
+import br.ce.wcaquino.daos.LocacaoDao;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
@@ -29,12 +30,18 @@ public class LocacaoTest {
 
     private LocacaoService locacaoService;
     private List<Filme> filmes;
+    private SpcService spcService;
+    private LocacaoDao dao;
 
     @Before
     public void setup() {
         System.out.println("before");
         locacaoService = new LocacaoService();
         filmes = new ArrayList<Filme>();
+        dao = Mockito.mock(LocacaoDao.class);
+        locacaoService.setLocacaoDao(dao);
+        spcService = Mockito.mock(SpcService.class);
+        locacaoService.setSpcService(spcService);
 
     }
 
@@ -228,5 +235,20 @@ public class LocacaoTest {
         //4+4+3+2+1=14
         //verficacao
         Assert.assertEquals(14.0, resultado.getLocacaoPreco(), 0.01);
+    }
+
+    @Test
+    public void deveLancarExcecaoParaUsuarioNegativado() throws FilmeSemEstoqueException, LocacaoException {
+        //cenario
+        Usuario usuario = new Usuario("Usuario 1");
+        List<Filme> filmes = Arrays.asList(new Filme("filme 1", 1, 4.0));
+
+        Mockito.when(spcService.possuiNagativacao(usuario)).thenReturn(true);
+
+        expectedException.expect(LocacaoException.class);
+        expectedException.expectMessage("Usuario Negativado");
+        //acao
+        locacaoService.alugarFilme(usuario, filmes);
+
     }
 }
