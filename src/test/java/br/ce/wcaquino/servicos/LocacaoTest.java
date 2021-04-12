@@ -243,6 +243,7 @@ public class LocacaoTest {
     public void deveLancarExcecaoParaUsuarioNegativado() throws FilmeSemEstoqueException, LocacaoException {
         //cenario
         Usuario usuario = umUsuario().agora();
+        Usuario usuario2 = umUsuario().comNome("Usuario 2").agora();
         List<Filme> filmes = Arrays.asList(new Filme("filme 1", 1, 4.0));
 
         Mockito.when(spcService.possuiNagativacao(usuario)).thenReturn(true);
@@ -250,7 +251,7 @@ public class LocacaoTest {
         expectedException.expect(LocacaoException.class);
         expectedException.expectMessage("Usuario Negativado");
         //acao
-        locacaoService.alugarFilme(usuario, filmes);
+        locacaoService.alugarFilme(usuario2, filmes);
 
     }
 }
