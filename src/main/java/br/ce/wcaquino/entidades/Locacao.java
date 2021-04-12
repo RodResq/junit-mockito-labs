@@ -46,6 +46,9 @@ public class Locacao {
 			if ( i == 2) {
 				valorFilme = valorFilme * 0.75;
 			}
+			if (i == 3) {
+				valorFilme = valorFilme * 0.5;
+			}
 
 			valorTotal += valorFilme;
 		}
@@ -54,15 +57,6 @@ public class Locacao {
 
 	}
 
-	private Double valorParaFilme3(Double valor) {
-		Double valorDesconto = 0.0;
-		Double taxaDesconto = 0.75;
-
-		valorDesconto = valor * taxaDesconto;
-
-		return (valor - valorDesconto);
-
-	}
 
 	public Double getLocacaoPreco() {
 		return locacaoPreco;

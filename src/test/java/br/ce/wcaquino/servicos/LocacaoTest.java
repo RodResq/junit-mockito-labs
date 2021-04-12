@@ -190,4 +190,22 @@ public class LocacaoTest {
         //verficacao
         Assert.assertEquals(11.0, resultado.getLocacaoPreco(), 0.01);
     }
+
+    @Test
+    public void devePagar50PctNoFilme4() throws FilmeSemEstoqueException, LocacaoException {
+        // cenario
+        Usuario usuario = new Usuario("Usuario 1");
+        List<Filme> filmes = Arrays.asList(
+                new Filme("filme 1", 1, 4.0),
+                new Filme("filme 2", 2, 4.0),
+                new Filme("filme 3", 3, 4.0),
+                new Filme("filme 4", 3, 4.0)
+        );
+
+        //acao
+        Locacao resultado = locacaoService.alugarFilme(usuario, filmes);
+        //4+4+3+2=13
+        //verficacao
+        Assert.assertEquals(13.0, resultado.getLocacaoPreco(), 0.01);
+    }
 }
