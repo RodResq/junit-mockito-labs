@@ -1,5 +1,6 @@
 package br.ce.wcaquino.servicos;
 
+import br.ce.wcaquino.builders.UsuarioBuilder;
 import br.ce.wcaquino.daos.LocacaoDao;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static br.ce.wcaquino.builders.UsuarioBuilder.umUsuario;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -240,7 +242,7 @@ public class LocacaoTest {
     @Test
     public void deveLancarExcecaoParaUsuarioNegativado() throws FilmeSemEstoqueException, LocacaoException {
         //cenario
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         List<Filme> filmes = Arrays.asList(new Filme("filme 1", 1, 4.0));
 
         Mockito.when(spcService.possuiNagativacao(usuario)).thenReturn(true);
