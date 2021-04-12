@@ -100,7 +100,7 @@ public class LocacaoTest {
     }
 
     @Test(expected = FilmeSemEstoqueException.class)
-    public void checaFilmeSemEstoque1() throws FilmeSemEstoqueException, LocacaoException {
+    public void naoDeveAlugarFilmeSemEstoque() throws FilmeSemEstoqueException, LocacaoException {
 
         Usuario usuario = new Usuario("Usuario 1");
         Filme filme = new Filme("Filme 1", 0, 5.5);
@@ -110,7 +110,7 @@ public class LocacaoTest {
     }
 
     @Test()
-    public void checaFilmeSemEstoque2() throws LocacaoException{
+    public void naoDeveAlugarFilmeSemEstoque2() throws LocacaoException{
 
         Usuario usuario = new Usuario("Usuario 1");
         Filme filme = new Filme("Filme 1", 0, 5.5);
@@ -127,7 +127,7 @@ public class LocacaoTest {
     }
 
     @Test
-    public void checaFilmeSemEstoqueLancandoExcecao() throws FilmeSemEstoqueException, LocacaoException {
+    public void deveLancarExcesaoFilmeSemEstoque() throws FilmeSemEstoqueException, LocacaoException {
 //      cenario
         Usuario usuario = new Usuario("Usuario 1");
         Filme filme = new Filme("Filme 1", 0, 5.5);
@@ -141,7 +141,7 @@ public class LocacaoTest {
     }
 
     @Test
-    public void checaSeUsarioEstaVazio() throws FilmeSemEstoqueException {
+    public void deveLancarExecaoSeUsuarioVazio() throws FilmeSemEstoqueException {
         Filme filme =  new Filme("Filme 1", 1, 5.5);
         filmes.add(filme);
 
@@ -154,7 +154,7 @@ public class LocacaoTest {
     }
 
     @Test
-    public void chacaSeFimeEstaVazio() throws FilmeSemEstoqueException {
+    public void deveLancarExecessaoSeFilmeVazio() throws FilmeSemEstoqueException {
         Usuario usuario = new Usuario("Usuario 1");
 
         try {
@@ -165,7 +165,7 @@ public class LocacaoTest {
     }
 
     @Test
-    public void chacaSeFimeEstaVazio2() throws FilmeSemEstoqueException, LocacaoException {
+    public void deveLancarExecessaoSeFilmeVazio2() throws FilmeSemEstoqueException, LocacaoException {
         Usuario usuario = new Usuario("Usuario 1");
 
         expectedException.expect(LocacaoException.class);
