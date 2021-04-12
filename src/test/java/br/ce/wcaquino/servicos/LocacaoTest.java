@@ -251,7 +251,7 @@ public class LocacaoTest {
         expectedException.expect(LocacaoException.class);
         expectedException.expectMessage("Usuario Negativado");
         //acao
-        locacaoService.alugarFilme(usuario2, filmes);
+        locacaoService.alugarFilme(usuario, filmes);
 
     }
 }
