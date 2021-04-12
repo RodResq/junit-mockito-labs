@@ -65,7 +65,6 @@ public class LocacaoTest {
         filmes.add(filme1);
         filmes.add(filme2);
 
-
         //acao
         Locacao locacao = locacaoService.alugarFilme(usuario, filmes);
 
