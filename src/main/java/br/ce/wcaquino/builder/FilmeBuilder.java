@@ -22,6 +22,11 @@ public class FilmeBuilder {
         return this;
     }
 
+    public FilmeBuilder comValor(Double valor) {
+        filme.setValor(valor);
+        return this;
+    }
+
     public Filme agora() {
         return filme;
     }
