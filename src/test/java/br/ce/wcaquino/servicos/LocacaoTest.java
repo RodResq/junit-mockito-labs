@@ -254,6 +254,7 @@ public class LocacaoTest {
     }
 
     @Test
+    @Ignore
     public void naoDeveDevolverFilmeNoDomigo() throws FilmeSemEstoqueException, LocacaoException {
         //Cenario
         Usuario usuario = umUsuario().agora();

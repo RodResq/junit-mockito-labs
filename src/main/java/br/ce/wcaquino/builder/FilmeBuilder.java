@@ -17,6 +17,11 @@ public class FilmeBuilder {
         return builder;
     }
 
+    public FilmeBuilder semEstoque() {
+        filme.setEstoque(0);
+        return this;
+    }
+
     public Filme agora() {
         return filme;
     }
