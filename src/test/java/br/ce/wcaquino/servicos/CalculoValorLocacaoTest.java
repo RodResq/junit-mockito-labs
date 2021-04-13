@@ -8,7 +8,10 @@ import br.ce.wcaquino.exceptions.LocacaoException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -16,15 +19,16 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 
+@RunWith(Parameterized.class)
 public class CalculoValorLocacaoTest {
 
     private LocacaoService locacaoService;
 
-    @Parameterized.Parameter(1)
-    private List<Filme> filmes;
+    @Parameter()
+    public List<Filme> filmes;
 
-    @Parameterized.Parameter(2)
-    private Double valorLocacao;
+    @Parameter(value = 1)
+    public Double valorLocacao;
 
     @Before
     public void setup() {
@@ -38,7 +42,7 @@ public class CalculoValorLocacaoTest {
     private static Filme filme5 = new Filme("filme 5", 1, 4.0);
     private static Filme filme6 = new Filme("filme 6", 1, 4.0);
 
-    @Parameterized.Parameters
+    @Parameters(name = "Teste {index} = {0} - {1}")
     public static Collection<Object[]> getParametros() {
         return Arrays.asList(new Object[][] {
                 {Arrays.asList(filme1, filme2, filme3), 11.0},
@@ -56,5 +60,10 @@ public class CalculoValorLocacaoTest {
         Locacao resultado = locacaoService.alugarFilme(usuario, filmes);
         //verficacao
         Assert.assertThat(resultado.getLocacaoPreco(), is(valorLocacao));
+    }
+
+    @Test
+    public void print() {
+        System.out.println(valorLocacao);
     }
 }
