@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="junit-mokito-labs" target="1.5" />
+      <module name="junit-mokito-labs" target="5" />
     </bytecodeTargetLevel>
   </component>
 </project>
