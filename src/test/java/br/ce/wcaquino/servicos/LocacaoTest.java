@@ -65,7 +65,7 @@ public class LocacaoTest {
     @Test()
     public void deveValidarValores() throws Exception {
 
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         Filme filme1 = new Filme("Filme 1", 2, 5.5);
         Filme filme2 = new Filme("Filme 2", 2, 6.0);
 
@@ -94,7 +94,7 @@ public class LocacaoTest {
 
     @Test
     public void verificaValorTotalLocalcao() throws FilmeSemEstoqueException, LocacaoException {
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         Filme filme1 = new Filme("Filme 1", 2, 5.0);
         Filme filme2 = new Filme("Filme 2", 2, 5.0);
 
@@ -110,7 +110,7 @@ public class LocacaoTest {
     @Test(expected = FilmeSemEstoqueException.class)
     public void naoDeveAlugarFilmeSemEstoque() throws FilmeSemEstoqueException, LocacaoException {
 
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         Filme filme = new Filme("Filme 1", 0, 5.5);
         filmes.add(filme);
 
@@ -120,7 +120,7 @@ public class LocacaoTest {
     @Test()
     public void naoDeveAlugarFilmeSemEstoque2() throws LocacaoException{
 
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         Filme filme = new Filme("Filme 1", 0, 5.5);
         filmes.add(filme);
 
@@ -137,7 +137,7 @@ public class LocacaoTest {
     @Test
     public void deveLancarExcesaoFilmeSemEstoque() throws FilmeSemEstoqueException, LocacaoException {
 //      cenario
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         Filme filme = new Filme("Filme 1", 0, 5.5);
         filmes.add(filme);
 //      acao
@@ -163,7 +163,7 @@ public class LocacaoTest {
 
     @Test
     public void deveLancarExecessaoSeFilmeVazio() throws FilmeSemEstoqueException {
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
 
         try {
             locacaoService.alugarFilme(usuario, null);
@@ -174,7 +174,7 @@ public class LocacaoTest {
 
     @Test
     public void deveLancarExecessaoSeFilmeVazio2() throws FilmeSemEstoqueException, LocacaoException {
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
 
         expectedException.expect(LocacaoException.class);
         expectedException.expectMessage("Filme vazio");
@@ -187,7 +187,7 @@ public class LocacaoTest {
     @Test
     public void devePagar75PctNoFilme3() throws FilmeSemEstoqueException, LocacaoException {
         // cenario
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         List<Filme> filmes = Arrays.asList(new Filme("filme 1", 1, 4.0),
                 new Filme("filme 2", 2, 4.0), new Filme("filme 3", 3, 4.0));
         
@@ -201,7 +201,7 @@ public class LocacaoTest {
     @Test
     public void devePagar25PctNoFilme5() throws FilmeSemEstoqueException, LocacaoException {
         // cenario
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         List<Filme> filmes = Arrays.asList(
                 new Filme("filme 1", 1, 4.0),
                 new Filme("filme 2", 2, 4.0),
@@ -220,7 +220,7 @@ public class LocacaoTest {
     @Test
     public void devePagar0PctNoFilme6() throws FilmeSemEstoqueException, LocacaoException {
         // cenario
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         List<Filme> filmes = Arrays.asList(
                 new Filme("filme 1", 1, 4.0),
                 new Filme("filme 2", 2, 4.0),
@@ -256,7 +256,7 @@ public class LocacaoTest {
     @Test
     public void naoDeveDevolverFilmeNoDomigo() throws FilmeSemEstoqueException, LocacaoException {
         //Cenario
-        Usuario usuario = new Usuario("Usuario 1");
+        Usuario usuario = umUsuario().agora();
         List<Filme> filmes = Arrays.asList(new Filme("Filme 1", 1, 5.0));
         // acao
         Locacao retorno = locacaoService.alugarFilme(usuario, filmes);
