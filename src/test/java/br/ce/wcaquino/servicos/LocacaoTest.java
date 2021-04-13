@@ -7,6 +7,7 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocacaoException;
+import br.ce.wcaquino.utils.DataUtils;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
@@ -14,11 +15,13 @@ import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import static br.ce.wcaquino.builders.UsuarioBuilder.umUsuario;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class LocacaoTest {
 
@@ -45,13 +48,6 @@ public class LocacaoTest {
         spcService = Mockito.mock(SpcService.class);
         locacaoService.setSpcService(spcService);
 
-    }
-
-    @After
-    public void after() {
-        System.out.println("after");
-        contador++;
-        System.out.println(contador);
     }
 
     @BeforeClass
@@ -252,6 +248,20 @@ public class LocacaoTest {
         expectedException.expectMessage("Usuario Negativado");
         //acao
         locacaoService.alugarFilme(usuario, filmes);
+
+    }
+
+    @Test
+    public void naoDeveDevolverFilmeNoDomigo() throws FilmeSemEstoqueException, LocacaoException {
+        //Cenario
+        Usuario usuario = new Usuario("Usuario 1");
+        List<Filme> filmes = Arrays.asList(new Filme("Filme 1", 1, 5.0));
+        // acao
+        Locacao retorno = locacaoService.alugarFilme(usuario, filmes);
+
+        //verificacao
+        boolean ehSegunda = DataUtils.verificarDiaSemana(retorno.getDataLocacao(), Calendar.MONDAY);
+        assertTrue(ehSegunda);
 
     }
 }
