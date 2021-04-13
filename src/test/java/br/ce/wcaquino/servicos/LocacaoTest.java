@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import static br.ce.wcaquino.builder.FilmeBuilder.umFilme;
+import static br.ce.wcaquino.builder.FilmeBuilder.umFilmeSemEstoque;
 import static br.ce.wcaquino.builders.UsuarioBuilder.umUsuario;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -109,7 +110,7 @@ public class LocacaoTest {
     public void naoDeveAlugarFilmeSemEstoque() throws FilmeSemEstoqueException, LocacaoException {
 
         Usuario usuario = umUsuario().agora();
-        Filme filme = umFilme().semEstoque().agora();
+        Filme filme = umFilmeSemEstoque().agora();
         filmes.add(filme);
 
         locacaoService.alugarFilme(usuario, filmes);
