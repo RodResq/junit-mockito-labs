@@ -14,7 +14,7 @@ import static br.ce.wcaquino.utils.DataUtils.adicionarDias;
 
 public class LocacaoService {
 
-	private LocacaoDao locacaoDao;
+	private LocacaoDao dao;
 	private SpcService cpcService;
 	
 	public Locacao alugarFilme(Usuario usuario, List<Filme> filmes) throws FilmeSemEstoqueException, LocacaoException {
@@ -50,13 +50,13 @@ public class LocacaoService {
 		
 		//Salvando a locacao...	
 		//TODO adicionar método para salvar
-		locacaoDao.salvar(locacao);
+		dao.salvar(locacao);
 		
 		return locacao;
 	}
 
-	public void setLocacaoDao(LocacaoDao dao) {
-		this.locacaoDao = dao;
+	public void setDao(LocacaoDao dao) {
+		this.dao = dao;
 	}
 
 	public void setSpcService(SpcService spc) {
