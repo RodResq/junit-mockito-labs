@@ -7,6 +7,7 @@ import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocacaoException;
 import br.ce.wcaquino.utils.DataUtils;
+import buildermaster.BuilderMaster;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
@@ -266,4 +267,5 @@ public class LocacaoTest {
         assertTrue(ehSegunda);
 
     }
+
 }
