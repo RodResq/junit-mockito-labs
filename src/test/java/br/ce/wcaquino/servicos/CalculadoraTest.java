@@ -31,9 +31,13 @@ public class CalculadoraTest {
 
     @Test
     public void comparandoMockComSpy() {
-        Mockito.when(calculadoraMock.somar(1, 2)).thenReturn(8);
 
-        System.out.println("Mock: " + calculadoraMock.somar(1, 2));
+        Mockito.when(calculadoraMock.somar(1, 2)).thenReturn(8);
+        Mockito.when(calculadoraSpy.somar(1,2)).thenReturn(8);
+
+        System.out.println("Mock: " + calculadoraMock.somar(1, 5));
+        System.out.println("Mock: " + calculadoraSpy.somar(1, 5));
+
     }
 
     @Test
