@@ -75,6 +75,7 @@ public class LocacaoService {
 		novaLocaocao.setDataLocacao(new Date());
 		novaLocaocao.setDataRetorno(DataUtils.obterDataComDiferencaDias(dias));
 		novaLocaocao.setLocacaoPreco(calcularPrecoProrrogacaoLocacao(locacao.getFilmes(), dias));
+		dao.salvar(novaLocaocao);
 
 	}
 
