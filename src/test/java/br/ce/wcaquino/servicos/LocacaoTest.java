@@ -1,5 +1,6 @@
 package br.ce.wcaquino.servicos;
 
+import br.ce.wcaquino.builder.LocacaoBuilder;
 import br.ce.wcaquino.daos.LocacaoDao;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
@@ -10,6 +11,7 @@ import br.ce.wcaquino.utils.DataUtils;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
@@ -41,7 +43,6 @@ public class LocacaoTest {
 
     @Before
     public void setup() {
-        System.out.println("before");
         locacaoService = new LocacaoService();
         filmes = new ArrayList<Filme>();
         dao = Mockito.mock(LocacaoDao.class);
@@ -53,12 +54,10 @@ public class LocacaoTest {
 
     @BeforeClass
     public static void beforeClass() {
-        System.out.println("before class");
     }
 
     @AfterClass
     public static void afterClass() {
-        System.out.println("after class");
     }
 
     @Test()
@@ -265,6 +264,17 @@ public class LocacaoTest {
         boolean ehSegunda = DataUtils.verificarDiaSemana(retorno.getDataLocacao(), Calendar.MONDAY);
         assertTrue(ehSegunda);
 
+    }
+
+    @Test
+    public void deveProrrogarLocacao() {
+
+        Locacao locacao = LocacaoBuilder.umLocacao().agora();
+
+        locacaoService.prorrogarLocacao(locacao, 3);
+
+        ArgumentCaptor<Locacao> argumentCaptor = ArgumentCaptor.forClass(Locacao.class);
+        Mockito.verify(dao).salvar(argumentCaptor.capture());
     }
 
 }

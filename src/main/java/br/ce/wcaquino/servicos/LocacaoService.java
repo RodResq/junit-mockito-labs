@@ -1,7 +1,5 @@
 package br.ce.wcaquino.servicos;
 
-import br.ce.wcaquino.builder.FilmeBuilder;
-import br.ce.wcaquino.builders.UsuarioBuilder;
 import br.ce.wcaquino.daos.LocacaoDao;
 import br.ce.wcaquino.entidades.Filme;
 import br.ce.wcaquino.entidades.Locacao;
@@ -10,7 +8,6 @@ import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocacaoException;
 import br.ce.wcaquino.utils.DataUtils;
 
-import java.io.FileFilter;
 import java.util.Date;
 import java.util.List;
 
@@ -74,17 +71,14 @@ public class LocacaoService {
 		novaLocaocao.setFilmes(locacao.getFilmes());
 		novaLocaocao.setDataLocacao(new Date());
 		novaLocaocao.setDataRetorno(DataUtils.obterDataComDiferencaDias(dias));
-		novaLocaocao.setLocacaoPreco(calcularPrecoProrrogacaoLocacao(locacao.getFilmes(), dias));
 		dao.salvar(novaLocaocao);
 
 	}
 
-	private List<Filme> calcularPrecoProrrogacaoLocacao(List<Filme> filmes, int dias) {
+	private Double calcularPrecoProrrogacaoLocacao(Filme filme, int dias) {
 
-		for (Filme filme : filmes) {
-			filme.setValor(filme.getValor() * dias);
-		}
-		return  filmes;
+		filme.setValor(filme.getValor() * dias);
+		return filme.getValor();
 	}
 
 }
