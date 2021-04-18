@@ -38,6 +38,11 @@ public class CalculadoraTest {
         System.out.println("Mock: " + calculadoraMock.somar(1, 2));
         System.out.println("Mock: " + calculadoraSpy.somar(1, 5));
 
+        System.out.println("Mock");
+        calculadoraMock.imprime();
+
+        System.out.println("Spy");
+        calculadoraSpy.imprime();
     }
 
     @Test
