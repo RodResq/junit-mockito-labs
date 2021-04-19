@@ -43,7 +43,7 @@ public class LocacaoService {
 		Locacao locacao = new Locacao();
 		locacao.setFilmes(filmes);
 		locacao.setUsuario(usuario);
-		locacao.setDataLocacao(Calendar.getInstance().getTime());
+		locacao.setDataLocacao(new Date());
 		locacao.setLocacaoPreco(filmes);
 		//Entrega no dia seguinte
 		Date dataEntrega = new Date();
@@ -70,7 +70,7 @@ public class LocacaoService {
 		Locacao novaLocaocao = new Locacao();
 		novaLocaocao.setUsuario(locacao.getUsuario());
 		novaLocaocao.setFilmes(locacao.getFilmes());
-		novaLocaocao.setDataLocacao(Calendar.getInstance().getTime());
+		novaLocaocao.setDataLocacao(new Date());
 		novaLocaocao.setDataRetorno(DataUtils.obterDataComDiferencaDias(dias));
 		dao.salvar(novaLocaocao);
 
