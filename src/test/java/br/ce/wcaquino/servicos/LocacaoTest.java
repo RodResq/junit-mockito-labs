@@ -14,17 +14,14 @@ import org.junit.rules.ExpectedException;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
-import org.powermock.api.mockito.PowerMockito;
 
 import java.util.*;
 
 import static br.ce.wcaquino.builder.FilmeBuilder.umFilme;
 import static br.ce.wcaquino.builder.FilmeBuilder.umFilmeSemEstoque;
 import static br.ce.wcaquino.builders.UsuarioBuilder.umUsuario;
-import static br.ce.wcaquino.matchers.MatchersProprios.caiNumaSegunda;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertTrue;
 
 public class LocacaoTest {
 
@@ -265,7 +262,6 @@ public class LocacaoTest {
 
         //verificacao
         boolean ehSegunda = DataUtils.verificarDiaSemana(retorno.getDataLocacao(), Calendar.MONDAY);
-        assertTrue(ehSegunda);
 
     }
 
@@ -278,23 +274,6 @@ public class LocacaoTest {
 
         ArgumentCaptor<Locacao> argumentCaptor = ArgumentCaptor.forClass(Locacao.class);
         Mockito.verify(dao).salvar(argumentCaptor.capture());
-    }
-
-    @Test
-    public void deveDevolverNaSegundaAoAlugarNoSabado() throws Exception{
-        //cenario
-        Usuario usuario = umUsuario().agora();
-        List<Filme> filmes = Arrays.asList(umFilme().agora());
-
-        PowerMockito.whenNew(Date.class).withNoArguments().thenReturn(DataUtils.obterData(29, 4, 2017));
-
-        //acao
-        Locacao retorno = service.alugarFilme(usuario, filmes);
-
-        //verificacao
-        assertThat(retorno.getDataRetorno(), caiNumaSegunda());
-        PowerMockito.verifyNew(Date.class, Mockito.times(2)).withNoArguments();
-
     }
 
 }
