@@ -14,6 +14,7 @@ import org.junit.rules.ExpectedException;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 
 import java.util.*;
 
@@ -25,6 +26,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class LocacaoTest {
 
+    @Spy
     @InjectMocks
     private LocacaoService service;
 
