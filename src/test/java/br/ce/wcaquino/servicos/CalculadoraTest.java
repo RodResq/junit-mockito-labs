@@ -13,7 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-//@RunWith(ParalleRunner.class)
+@RunWith(ParalleRunner.class)
 public class CalculadoraTest {
 
     private Calculadora calculadora;
