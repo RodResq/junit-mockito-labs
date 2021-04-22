@@ -1,6 +1,7 @@
 package br.ce.wcaquino.servicos;
 
 import br.ce.wcaquino.exceptions.NaoPodeDividirPorZeroException;
+import br.ce.wcaquino.runners.ParalleRunner;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-@RunWith(BlockJUnit4ClassRunner.class)
+@RunWith(ParalleRunner.class)
 public class CalculadoraTest {
 
     private Calculadora calculadora;
