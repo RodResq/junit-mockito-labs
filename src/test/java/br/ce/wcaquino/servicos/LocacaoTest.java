@@ -7,10 +7,12 @@ import br.ce.wcaquino.entidades.Locacao;
 import br.ce.wcaquino.entidades.Usuario;
 import br.ce.wcaquino.exceptions.FilmeSemEstoqueException;
 import br.ce.wcaquino.exceptions.LocacaoException;
+import br.ce.wcaquino.runners.ParalleRunner;
 import br.ce.wcaquino.utils.DataUtils;
 import org.junit.*;
 import org.junit.rules.ErrorCollector;
 import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mockito;
@@ -24,6 +26,7 @@ import static br.ce.wcaquino.builders.UsuarioBuilder.umUsuario;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@RunWith(ParalleRunner.class)
 public class LocacaoTest {
 
     @Spy
@@ -51,6 +54,14 @@ public class LocacaoTest {
         service.setDao(dao);
         spcService = Mockito.mock(SpcService.class);
         service.setSpcService(spcService);
+
+        System.out.println("Inicializando 2...");
+    }
+
+    @After
+    public void tearDown() {
+
+        System.out.println("Finalizando 2...");
 
     }
 
