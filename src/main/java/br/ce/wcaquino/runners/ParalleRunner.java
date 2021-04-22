@@ -20,7 +20,7 @@ public class ParalleRunner extends BlockJUnit4ClassRunner {
 
         public ThreadPoll() {
 
-            executor = Executors.newFixedThreadPool(2);
+            executor = Executors.newFixedThreadPool(5);
 
         }
 
