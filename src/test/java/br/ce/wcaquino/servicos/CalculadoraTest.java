@@ -30,6 +30,8 @@ public class CalculadoraTest {
         calculadora = new Calculadora();
         MockitoAnnotations.initMocks(this);
 
+        System.out.println("Iniciando...");
+
     }
 
 
