@@ -2,6 +2,7 @@ package br.ce.wcaquino.servicos;
 
 import br.ce.wcaquino.exceptions.NaoPodeDividirPorZeroException;
 import br.ce.wcaquino.runners.ParalleRunner;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-@RunWith(ParalleRunner.class)
+//@RunWith(ParalleRunner.class)
 public class CalculadoraTest {
 
     private Calculadora calculadora;
@@ -32,6 +33,12 @@ public class CalculadoraTest {
 
         System.out.println("Iniciando...");
 
+    }
+
+    @After
+    public void tearDown() {
+
+        System.out.println("Finalizando...");
     }
 
 
